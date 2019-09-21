@@ -1,37 +1,31 @@
 <div class="devoured" style="width: 50%; display: inline-block; margin: 0px;">
-<h5>Burgers are devoured!</h5>
+<h5>Burgers that are devoured!</h5>
 
 <ul class="eatenBurgers">
   {{#each burgers}}
     {{#unless devoured}}
-      {{> burger/devoured devoured=true}}
+      {{> burgers/burger-block devoured=true}}
     {{/unless}}
   {{/each}}
 </ul>
 </div>
 <div class="notEaten" style="width: 50%; display: inline-block; margin: 0px; float: right;">
-<h5 style="text-align: right;">Burgers that aren't eaten!</h5>
-</div>
-<ul class="burgers">
+<h5 style="text-align: center;">Burgers that aren't eaten!</h5>
+<ul class="burgers" style="text-align: center">
   {{#each burgers}}
     {{#if devoured}}
-      {{> burger/devoured devoured=false}}
+      {{> burgers/burger-block devoured=false}}
     {{/if}}
   {{/each}}
 </ul>
-
+</div>
+<div id="order">
 <h4>Add a Burger</h4>
 <form class="create-form">
 
   <div class="form-group">
     <label for="ca">Burger Name:</label>
-    <input type="text" id="ca" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="slee">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Yum!<br>
-    <input type="radio" name="devoured" value="0"> No Way
+    <input type="text" id="burgerName" name="name">
   </div>
 
   <button type="submit">Add Burger</button>
